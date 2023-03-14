@@ -1,0 +1,32 @@
+<nav th:fragment="navigation" class="navbar navbar-expand-md navbar-dark fixed-top rounded">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+    <ul th:unless="${@loggedUser.isValid()}"
+        class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/auth/login}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/auth/register}">Register</a>
+      </li>
+    </ul>
+
+    <ul th:if="${@loggedUser.isValid()}"
+            class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/home}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ships/add}">Add Ship</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/auth/logout}">Logout</a>
+      </li>
+    </ul>
+
+    <img width="50px" src="/images/ufo.png" alt="Ufo image">
+  </div>
+</nav>
